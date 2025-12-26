@@ -8,13 +8,13 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Sync LeetCode submissions
-        uses: artem-lysenko/leetcode-github-sync@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-          destination-folder: "LeetCode"
+      - name: Sync LeetCode solutions
+        uses: docker://ghcr.io/yihong0618/leetcode-sync:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
