@@ -8,15 +8,14 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Sync LeetCode submissions
         uses: joshcai/leetcode-sync@v1
-       with:
-  github-token: ${{ secrets.GITHUB_TOKEN }}
-  leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-  leetcode-csrf-token: ${{ secrets.CSRF_TOKEN }}
-  destination-folder: "LeetCode"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
+          leetcode-csrf-token: ${{ secrets.CSRF_TOKEN }}
+          destination-folder: "LeetCode"
